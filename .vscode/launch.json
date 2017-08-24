@@ -1,6 +1,7 @@
 //EqualTreePartition
 //TwoSum
 //AddTwoNumbers
+//LongestSubstringWithoutRepeatingChar
 
 {
   // Use IntelliSense to learn about possible Node.js debug attributes.
@@ -12,7 +13,7 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceRoot}/AddTwoNumbers/test.js"
+      "program": "${workspaceRoot}/LongestSubstringWithoutRepeatingChar/test.js"
     }
   ]
 }
