@@ -20,7 +20,11 @@ var sumTree = function (root) {
   if (root == null) {
     return 0;
   }
-  return root.val + sumTree(root.left) + sumTree(root.right);
+  const d = root.val;
+  const l = sumTree(root.left);
+  const r = sumTree(root.right);
+  // console.log(d, l, r, d + l + r);
+  return d + l + r;
 };
 
 var partition = function (root, half) {
@@ -30,7 +34,9 @@ var partition = function (root, half) {
       if (sumTree(node.left) === half) {
         return true;
       } else {
-        dfs_ldr(node.left);
+        if (dfs_ldr(node.left)) {
+          return true;
+        }
       }
     }
 
@@ -38,7 +44,9 @@ var partition = function (root, half) {
       if (sumTree(node.right) === half) {
         return true;
       } else {
-        dfs_ldr(node.right);
+        if (dfs_ldr(node.right)) {
+          return true;
+        }
       }
     }
   }
