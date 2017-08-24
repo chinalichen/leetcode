@@ -1,3 +1,4 @@
+// all chai.assert api. http://chaijs.com/api/assert/
 const chaiAssert = require('./chai').assert;
 
 const assert = {};
