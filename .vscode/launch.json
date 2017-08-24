@@ -1,5 +1,6 @@
 //EqualTreePartition
 //TwoSum
+//AddTwoNumbers
 
 {
   // Use IntelliSense to learn about possible Node.js debug attributes.
@@ -11,7 +12,7 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceRoot}/TwoSum/test.js"
+      "program": "${workspaceRoot}/AddTwoNumbers/test.js"
     }
   ]
 }
