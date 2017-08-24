@@ -16,7 +16,9 @@ function getWrapped(func) {
       func.apply(this, arguments);
       console.log(title, 'pass');
     } catch (e) {
-      console.error(title, 'failed, expect `' + expect + '`', 'but got `' + actual + '`');
+      const expectJson = JSON.stringify(expect);
+      const actualJson = JSON.stringify(actual);
+      console.error(title, 'failed, expect `' + expectJson + '`', 'but got `' + actualJson + '`');
     }
   }
 }
