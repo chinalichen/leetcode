@@ -2,7 +2,7 @@
 //TwoSum
 //AddTwoNumbers
 //LongestSubstringWithoutRepeatingChar
-
+//MedianOfTwoSortedArrays
 {
   // Use IntelliSense to learn about possible Node.js debug attributes.
   // Hover to view descriptions of existing attributes.
@@ -13,7 +13,7 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceRoot}/LongestSubstringWithoutRepeatingChar/test.js"
+      "program": "${workspaceRoot}/MedianOfTwoSortedArrays/test.js"
     }
   ]
 }
