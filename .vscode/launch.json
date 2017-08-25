@@ -13,7 +13,7 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceRoot}/MedianOfTwoSortedArrays/test.js"
+      "program": "${workspaceRoot}/LongestPalindromicSubstring/test.js"
     }
   ]
 }
