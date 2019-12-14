@@ -2,17 +2,20 @@
  * @param {number[]} nums
  * @return {number}
  */
-var maxSubArray = function (nums) {
-  let max = nums[0];
-  let sum = 0;
-  for (let i = 0; i < nums.length; i++) {
-    if (sum > 0) {
-      sum += nums[i];
-    } else {
-      sum = nums[i];
-    }
-    max = Math.max(max, sum);
+
+function sub(array) {
+  const num = array[array.length - 1];
+  if (array.length === 1) {
+    return { max: num, tailSum: Math.max(num, 0) };
   }
-  return max;
+  const res = sub(array.slice(0, -1));
+  const sum = res.tailSum + num;
+  const max = Math.max(res.max, sum);
+  return { max, tailSum: Math.max(0, sum) };
+}
+
+var maxSubArray = function (nums) {
+  return sub(nums).max;
 };
+
 module.exports = maxSubArray;
