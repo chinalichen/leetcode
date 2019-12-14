@@ -1,13 +1,13 @@
-const searchInsert = require('./app.js.js');
+const searchInsert = require('./app.js');
 const assert = require('../utils/assert');
 
 const dataTable = [
-  { expect: { l: 0, v: [] }, input: { n: 1, v: [1, 1, 1, 1, 1] } },
-  { expect: { l: 4, v: [1, 1, 1, 1] }, input: { n: 2, v: [1, 1, 1, 1, 2, 2, 2, 2] } },
-  { expect: { l: 4, v: [2, 2, 2, 3] }, input: { n: 1, v: [1, 1, 1, 2, 2, 2, 3] } },
+  { expect: 2, input: { n: 5, v: [1, 3, 5, 6] } },
+  { expect: 1, input: { n: 2, v: [1, 3, 5, 6] } },
+  { expect: 4, input: { n: 7, v: [1, 3, 5, 6] } },
+  { expect: 0, input: { n: 0, v: [1, 3, 5, 6] } },
 ];
 
 dataTable.forEach((cases, i) => {
-  assert.equal(cases.expect.l, searchInsert(cases.input.v, cases.input.n), `searchInsert ${i}:1`);
-  assert.deepEqual(cases.expect.v, cases.input.v.slice(0, cases.expect.l), `searchInsert ${i}:2`);
+  assert.equal(cases.expect, searchInsert(cases.input.v, cases.input.n), `searchInsert ${i}:1`);
 });
