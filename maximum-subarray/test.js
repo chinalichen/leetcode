@@ -2,7 +2,7 @@ const maxSubArray = require('./app.js');
 const assert = require('../utils/assert');
 
 const dataTable = [
-  { expect: 6, input: [-2, 1, -3, 4, -1, 2, 1, -5, 4] },
+  { expect: 7, input: [-2, 1, -3, 4, -1, 2, 1, -105, 3, 4] },
 ];
 
 dataTable.forEach((cases, i) => {
