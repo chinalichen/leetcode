@@ -1,5 +1,5 @@
 const findMedianSortedArrays = require('./app.js');
-const assert = require('../assert');
+const assert = require('../utils/assert');
 
 assert.equal(2, findMedianSortedArrays([-1, 0, 1], [3, 4, 5]), 'median 1');
 assert.equal(2, findMedianSortedArrays([3, 4, 5], [-1, 0, 1]), 'median 2');

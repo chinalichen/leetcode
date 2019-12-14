@@ -1,5 +1,5 @@
 const lengthOfLongestSubstring = require('./app.js');
-const assert = require('../assert');
+const assert = require('../utils/assert');
 
 assert.equal(3, lengthOfLongestSubstring('abcabcbb'), 'lengthOfLongestSubstring 1');
 assert.equal(1, lengthOfLongestSubstring('bbbbb'), 'lengthOfLongestSubstring 2');

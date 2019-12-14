@@ -1,6 +1,6 @@
 const { checkEqualTree, sumTree } = require('./app.js');
 const buildTreeFromArray = require('./tree.js');
-const assert = require('../assert');
+const assert = require('../utils/assert');
 
 assert.equal(0, sumTree(buildTreeFromArray([-1, 0, 1])), 'sumTree 1');
 assert.equal(30, sumTree(buildTreeFromArray([5, 10, 10, null, null, 2, 3])), 'sumTree 2');

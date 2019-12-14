@@ -1,5 +1,5 @@
 const addTwoNumbers = require('./app.js');
-const assert = require('../assert');
+const assert = require('../utils/assert');
 
 function listFromArray(array) {
   const parent = { next: null };

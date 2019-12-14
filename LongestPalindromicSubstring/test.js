@@ -1,5 +1,5 @@
 const longestPalindrome = require('./app.js');
-const assert = require('../assert');
+const assert = require('../utils/assert');
 const time = require('../time');
 
 assert.notEqual(-1, ['bab', 'aba'].indexOf(longestPalindrome('babad')), 'longestPalindrome 1');
