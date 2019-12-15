@@ -3,12 +3,10 @@
  * @return {number}
  */
 var findSpecialInteger = function (digits) {
-  const map = {};
+  const interval = Math.floor(digits.length / 4);
   for (let i = 0; i < digits.length; i++) {
-    const num = digits[i];
-    map[num] = map[num] ? map[num] + 1 : 1;
-    if (map[num] / digits.length > 0.25) {
-      return num;
+    if (digits[i] === digits[i + interval]) {
+      return digits[i];
     }
   }
 };
