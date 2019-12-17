@@ -3,15 +3,20 @@
  * @return {number}
  */
 var majorityElement = function (nums) {
-  const map = {};
-  const half = Math.floor(nums.length / 2);
-  for (let i = 0; i < nums.length; i++) {
+  let majority = nums[0];
+  let count = 1;
+  for (let i = 1; i < nums.length; i++) {
     const n = nums[i];
-    map[n] = (map[n] || 0) + 1;
-    if (map[n] > half) {
-      return n;
+    if (count === 0) {
+      majority = n;
+    }
+    if (n === majority) {
+      count++;
+    } else {
+      count--;
     }
   }
+  return majority;
 };
 
 module.exports = majorityElement;
