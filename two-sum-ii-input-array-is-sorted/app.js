@@ -4,17 +4,17 @@
  * @return {number[]}
  */
 var twoSum = function (numbers, target) {
-  const map = numbers.reduce((m, n, i) => ({ ...m, [n]: i }), {});
-  for (let i = 0; i < numbers.length; i++) {
-    const n = numbers[i];
-    const sub = map[target - n];
-    if (sub == null) {
-      continue;
+  let head = 0;
+  let tail = numbers.length - 1;
+  while (true) {
+    const sum = numbers[head] + numbers[tail];
+    if (sum > target) {
+      tail--;
+    } else if (sum < target) {
+      head++;
+    } else {
+      return [head + 1, tail + 1];
     }
-    if (sub === i) {
-      continue;
-    }
-    return [Math.min(i + 1, sub + 1), Math.max(i + 1, sub + 1)];
   }
 };
 
