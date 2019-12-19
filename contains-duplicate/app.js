@@ -3,13 +3,14 @@
  * @return {boolean}
  */
 var containsDuplicate = function (nums) {
-  nums.sort();
-  for (let i = 0; i < nums.length - 1; i++) {
-    if (nums[i] === nums[i + 1]) {
+  const map = {};
+  const dup = nums.some((n) => {
+    if (map[n]) {
       return true;
     }
-  }
-  return false;
+    map[n] = true;
+  });
+  return dup;
 };
 
 module.exports = containsDuplicate;
