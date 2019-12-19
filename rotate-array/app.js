@@ -3,24 +3,28 @@
  * @param {number} k
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-
-var reverse = (nums, start, end) => {
-  var temp;
-  while (start < end) {
-    temp = nums[start];
-    nums[start] = nums[end];
-    nums[end] = temp;
-    start++;
-    end--;
-  }
-};
+const move = (from, k, l) => (from + k) % l;
 
 var rotate = function (nums, k) {
   const l = nums.length;
-  const offset = k % l;
-  reverse(nums, 0, l - offset - 1);
-  reverse(nums, l - offset, l - 1);
-  reverse(nums, 0, l - 1);
+  let count = l;
+  let from = 0;
+
+  for (let i = 0; i < l; i++) {
+    let fromTemp = nums[from];
+    while (count > 0) {
+      count--;
+      let to = move(from, k, l);
+      let toTemp = nums[to];
+      nums[to] = fromTemp;
+      fromTemp = toTemp;
+      from = to;
+      if (to === i) {
+        from = i + 1;
+        break;
+      }
+    }
+  }
 };
 
 module.exports = rotate;
