@@ -1,4 +1,4 @@
-const searchInsert = require('./app.js');
+const searchInsert = require('./app');
 const assert = require('../utils/assert');
 
 const dataTable = [

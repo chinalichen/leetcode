@@ -1,4 +1,4 @@
-const merge = require('./app.js');
+const merge = require('./app');
 const assert = require('../utils/assert');
 
 const dataTable = [

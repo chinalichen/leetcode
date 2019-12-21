@@ -1,4 +1,4 @@
-const maximumSwap = require('./app.js');
+const maximumSwap = require('./app');
 const assert = require('../utils/assert');
 
 assert.deepEqual(7236, maximumSwap(2736), 'maximumSwap 1');

@@ -1,4 +1,4 @@
-const longestPalindrome = require('./app.js');
+const longestPalindrome = require('./app');
 const assert = require('../utils/assert');
 const time = require('../time');
 

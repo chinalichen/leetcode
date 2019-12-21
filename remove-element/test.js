@@ -1,4 +1,4 @@
-const removeElement = require('./app.js');
+const removeElement = require('./app');
 const assert = require('../utils/assert');
 
 const dataTable = [

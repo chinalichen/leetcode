@@ -1,4 +1,4 @@
-const plusOne = require('./app.js');
+const plusOne = require('./app');
 const assert = require('../utils/assert');
 
 const dataTable = [

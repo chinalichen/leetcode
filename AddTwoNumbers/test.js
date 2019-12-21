@@ -1,4 +1,4 @@
-const addTwoNumbers = require('./app.js');
+const addTwoNumbers = require('./app');
 const assert = require('../utils/assert');
 
 function listFromArray(array) {

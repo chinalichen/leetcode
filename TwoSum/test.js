@@ -1,4 +1,4 @@
-const twoSum = require('./app.js');
+const twoSum = require('./app');
 const assert = require('../utils/assert');
 
 assert.deepEqual([1, 2], twoSum([3, 2, 4], 6), 'twoSum 1');

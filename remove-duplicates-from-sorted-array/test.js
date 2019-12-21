@@ -1,4 +1,4 @@
-const removeDuplicates = require('./app.js');
+const removeDuplicates = require('./app');
 const assert = require('../utils/assert');
 
 const dataTable = [

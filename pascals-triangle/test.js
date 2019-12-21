@@ -1,4 +1,4 @@
-const generate = require('./app.js');
+const generate = require('./app');
 const assert = require('../utils/assert');
 
 const dataTable = [

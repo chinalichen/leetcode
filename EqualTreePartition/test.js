@@ -1,4 +1,4 @@
-const { checkEqualTree, sumTree } = require('./app.js');
+const { checkEqualTree, sumTree } = require('./app');
 const buildTreeFromArray = require('./tree.js');
 const assert = require('../utils/assert');
 

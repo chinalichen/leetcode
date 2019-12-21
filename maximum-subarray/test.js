@@ -1,4 +1,4 @@
-const maxSubArray = require('./app.js');
+const maxSubArray = require('./app');
 const assert = require('../utils/assert');
 
 const dataTable = [

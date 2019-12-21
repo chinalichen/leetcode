@@ -1,4 +1,4 @@
-const checkStraightLine = require('./app.js');
+const checkStraightLine = require('./app');
 const assert = require('../utils/assert');
 
 const dataTable = [

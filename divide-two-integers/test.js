@@ -1,4 +1,4 @@
-const divide = require('./app.js');
+const divide = require('./app');
 const assert = require('../utils/assert');
 
 const dataTable = [
