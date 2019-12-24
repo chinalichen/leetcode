@@ -2,14 +2,25 @@
  * @param {number} N
  * @return {number}
  */
-var result = [0, 1, 1];
 var fib = function (N) {
-  if (result[N] != null) {
-    return result[N];
+  if (N === 0) {
+    return 0;
   }
-  const r = fib(N - 1) + fib(N - 2);
-  result[N] = r;
-  return r;
+  if (N === 1) {
+    return 1;
+  }
+  let first = 0;
+  let second = 1;
+  let index = Math.floor(N / 2);
+  while (index > 0) {
+    first = first + second;
+    second = first + second;
+    index--;
+  }
+  if (N % 2 === 0) {
+    return first;
+  }
+  return second;
 };
 
 module.exports = fib;
