@@ -3,35 +3,7 @@
  * @return {number[][]}
  */
 var minimumAbsDifference = function (arr) {
-  /* bucket sort start */
-  const posBuckets = [];
-  const negBuckets = [];
-  for (let i = 0; i < arr.length; i++) {
-    const v = arr[i];
-    if (v < 0) {
-      negBuckets[-v] = v;
-    } else {
-      posBuckets[v] = v;
-    }
-  }
-
-  const sorted = [];
-  let index = 0;
-  for (let i = negBuckets.length - 1; i >= 0; i--) {
-    const v = negBuckets[i];
-    if (v == null) {
-      continue;
-    }
-    sorted[index++] = negBuckets[i];
-  }
-  for (let i = 0; i < posBuckets.length; i++) {
-    const v = posBuckets[i];
-    if (v == null) {
-      continue;
-    }
-    sorted[index++] = posBuckets[i];
-  }
-  /* bucket sort end */
+  const sorted = arr.sort((a, b) => a - b);
 
   let min = 999999999;
   const result = [];
