@@ -2,20 +2,16 @@
  * @param {number[]} cost
  * @return {number}
  */
-const f = (cost, n) => {
-  const l = cost.length;
-  if (l === 1) {
-    return cost[0];
-  }
-  if (l === 2) {
-    return cost[1];
-  }
-  const c1 = f(cost.slice(0, l - 2), 2);
-  const c2 = f(cost.slice(0, l - 1), 1);
-  return Math.min(c1, c2) + cost[l - 1]
-};
+
 var minCostClimbingStairs = function (cost) {
-  return f(cost.concat(0));
+  cost = cost.concat(0);
+  let cs = cost.slice(0);
+  let i = 2;
+  while (i < cost.length) {
+    cs[i] = Math.min(cs[i - 2], cs[i - 1]) + cost[i];
+    i++;
+  }
+  return cs[i - 1];
 };
 
 module.exports = minCostClimbingStairs;
