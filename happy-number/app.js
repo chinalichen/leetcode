@@ -2,20 +2,17 @@
  * @param {number} n
  * @return {boolean}
  */
-const happy = (map, n) => {
-  if (n === 1) {
-    return true;
-  }
-  if (map[n] != null) {
-    return false;
-  }
-  map[n] = true;
-  const newN = ('' + n).split('').map(n => 0 + n).map(n => n * n).reduce((s, n) => s + n);
-  return happy(map, newN);
-};
+const sum = n => ('' + n).split('').map(n => 0 + n).map(n => n * n).reduce((s, n) => s + n);
 
 var isHappy = function (n) {
-  return happy({}, n)
+  let slow = n;
+  let fast = sum(n);
+  while (slow !== fast) {
+    slow = sum(slow);
+    fast = sum(fast);
+    fast = sum(fast);
+  }
+  return slow === 1;
 };
 
 module.exports = isHappy;
