@@ -3,21 +3,30 @@
  * @param {string} t
  * @return {boolean}
  */
-var isIsomorphic = function (s, t) {
-  const tm = {};
-  const sm = {};
-  for (let i = 0; i < t.length; i++) {
-    const tc = t[i];
-    const sc = s[i];
-    if (tm[tc] == null && sm[sc] == null) {
-      tm[tc] = sc;
-      sm[sc] = tc;
-      continue;
+const transform = str => {
+  const m = {};
+  let index = 0;
+  const chars = str.split("");
+  const arr = [];
+  chars.forEach((c, i) => {
+    if (m[c] == null) {
+      m[c] = index;
+      index++;
     }
-    if (tm[tc] !== sc) {
+    arr[i] = m[c];
+  });
+  return arr;
+};
+var isIsomorphic = function (s, t) {
+  const a1 = transform(s);
+  const a2 = transform(t);
+
+  for (let i = 0; i < t.length; i++) {
+    if (a1[i] !== a2[i]) {
       return false;
     }
   }
+
   return true;
 };
 
