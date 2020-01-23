@@ -11,36 +11,34 @@ function getMap(word, lm = {}) {
     return lm;
 }
 
+function has(wordsMap, word) {
+    if (!wordsMap[word]) {
+        return false;
+    }
+    const sub = word.slice(0, -1);
+    if (sub.length < 1) {
+        return true;
+    }
+    return has(wordsMap, sub);
+}
+
 var longestWord = function (words) {
-    let lm = {};
-    for (let i = 0; i < words.length; i++) {
-        const word = words[i];
-        lm = getMap(word, lm)
-    }
+    const wm = getMap(words, {})
 
-    const result = [];
-    let max = 0;
-    for (let i = 0; i < words.length; i++) {
-        const word = words[i];
-        const sub = getMap(word, {})
-        let count = 0;
-        for (let k in sub) {
-            if (sub[k] * 2 > lm[k]) {
-                count++;
-            }
-            if (count > 1) {
-                break;
-            }
+    let maxWord = '';
+    words.sort().forEach((w) => {
+        if (!has(wm, w)) {
+            return;
         }
-        if (count <= 1) {
-            result.push(word);
-            if (word.length > max) {
-                max = word.length;
-            }
+        if (maxWord.length < w.length) {
+            maxWord = w;
+            return;
         }
-    }
-
-    return result.filter(w => w.length === max).sort()[0];
+        if (maxWord > w) {
+            return;
+        }
+    });
+    return maxWord;
 };
 
 module.exports = longestWord;
