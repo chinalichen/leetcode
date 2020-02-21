@@ -12,22 +12,26 @@
  * @return {ListNode}
  */
 var getIntersectionNode = function (headA, headB) {
-  let pos = headA;
-  while(pos!=null) {
-    pos.visited = true;
+  let posA = headA;
+  let posB = headB;
+  while (posA != null && posB != null) {
+    posA = posA.next;
+    posB = posB.next;
+  }
+  let pos = posA == null ? posB : posA;
+  let long = posA == null ? headB : headA;
+  let short = posA == null ? headA : headB;
+  while (pos != null) {
+    long = long.next;
     pos = pos.next;
   }
-  pos = headB;
-  while(pos!=null && !pos.visited) {
-    pos = pos.next;
+
+  while (long !== short) {
+    long = long.next;
+    short = short.next;
   }
-  result = pos;
-  pos = headA;
-  while(pos!=null) {
-    delete pos.visited;
-    pos = pos.next;
-  }
-  return result;
+
+  return long;
 };
 
 module.exports = getIntersectionNode;
