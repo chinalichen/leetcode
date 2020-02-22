@@ -5,33 +5,38 @@
  *     this.next = null;
  * }
  */
-
 /**
- * @param {ListNode} headA
- * @param {ListNode} headB
+ * @param {ListNode} head
+ * @param {number} val
  * @return {ListNode}
  */
-var getIntersectionNode = function (headA, headB) {
-  let posA = headA;
-  let posB = headB;
-  while (posA != null && posB != null) {
-    posA = posA.next;
-    posB = posB.next;
+var removeElements = function (head, val) {
+  if (head == null) {
+    return null;
   }
-  let pos = posA == null ? posB : posA;
-  let long = posA == null ? headB : headA;
-  let short = posA == null ? headA : headB;
-  while (pos != null) {
-    long = long.next;
-    pos = pos.next;
+  let start = head;
+  while (start != null && start.val === val) start = start.next;
+Î
+  if (start == null) {
+    return null;
   }
 
-  while (long !== short) {
-    long = long.next;
-    short = short.next;
+  let fast = start.next;
+  let slow = start;
+  slow.next = null;
+
+  while (fast != null) {
+    if (fast.val === val) {
+      fast = fast.next;
+      continue;
+    }
+    slow.next = fast;
+    slow = slow.next;
+    fast = fast.next;
+    slow.next = null;
   }
 
-  return long;
+  return start;
 };
 
-module.exports = getIntersectionNode;
+module.exports = removeElements;

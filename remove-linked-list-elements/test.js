@@ -1,4 +1,4 @@
-const getIntersectionNode = require("./app");
+const removeElements = require("./app");
 const assert = require("../utils/assert");
 
 function ListNode(val) {
@@ -13,25 +13,17 @@ function generateList(arr) {
     const next = nodes[i + 1];
     curr.next = next;
   }
-  return { head: nodes[0], all: nodes };
-}
-
-function build(arr1, arr2, isIntersect, intersectStartIndexInArr1) {
-  const l1 = generateList(arr1);
-  const l2 = generateList(arr2);
-  if (isIntersect) {
-    l2.all[l2.all.length - 1].next = l1.all[intersectStartIndexInArr1];
-  }
-  return { l1: l1.head, l2: l2.head };
+  return nodes[0];
 }
 
 const dataTable = [
-  { expect: generateList([8, 4, 5]).head, input: build([4, 1, 8, 4, 5], [5, 0, 1], true, 2) },
-  { expect: generateList([2, 4]).head, input: build([0, 9, 1, 2, 4], [3], true, 3) },
-  { expect: null, input: build([2, 6, 4], [1, 5], false, 0) },
+  { expect: generateList([1, 2, 3, 4, 5]), input: { list: generateList([1, 2, 6, 3, 4, 5, 6]), val: 6 } },
+  { expect: generateList([2, 3, 4, 5, 6]), input: { list: generateList([1, 2, 3, 4, 5, 6]), val: 1 } },
+  { expect: null, input: { list: generateList([1, 1, 1, 1, 1, 1]), val: 1 } },
+  { expect: null, input: { list: generateList([]), val: 1 } },
 ];
 
 dataTable.forEach((cases, i) => {
   const { expect, input } = cases;
-  assert.deepEqual(expect, getIntersectionNode(input.l1, input.l2), `${i}:`);
+  assert.deepEqual(expect, removeElements(input.list, input.val), `${i}:`);
 });
