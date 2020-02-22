@@ -14,11 +14,13 @@ var removeElements = function (head, val) {
   if (head == null) {
     return null;
   }
+  const next = removeElements(head.next, val);
   if (head.val === val) {
-    return removeElements(head.next, val);
+    return next;
+  } else {
+    head.next = next;
+    return head;
   }
-  head.next = removeElements(head.next, val);
-  return head;
 };
 
 module.exports = removeElements;
