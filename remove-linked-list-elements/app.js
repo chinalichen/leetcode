@@ -14,29 +14,11 @@ var removeElements = function (head, val) {
   if (head == null) {
     return null;
   }
-  let start = head;
-  while (start != null && start.val === val) start = start.next;
-Î
-  if (start == null) {
-    return null;
+  if (head.val === val) {
+    return removeElements(head.next, val);
   }
-
-  let fast = start.next;
-  let slow = start;
-  slow.next = null;
-
-  while (fast != null) {
-    if (fast.val === val) {
-      fast = fast.next;
-      continue;
-    }
-    slow.next = fast;
-    slow = slow.next;
-    fast = fast.next;
-    slow.next = null;
-  }
-
-  return start;
+  head.next = removeElements(head.next, val);
+  return head;
 };
 
 module.exports = removeElements;
