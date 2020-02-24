@@ -9,22 +9,26 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
+let newHead = null;
 var reverseList = function (head) {
   if (head == null || head.next == null) {
     return head;
   }
 
-  let next = null;
+  const last = reverse(head);
+  last.next = null;
 
-  let pos = head;
-  while (pos != null) {
-    const t = pos.next;
-    pos.next = next;
-    next = pos;
-    pos = t;
-  }
-
-  return next;
+  return newHead;
 };
+
+function reverse(head) {
+  if (head.next == null) {
+    newHead = head;
+    return head;
+  }
+  const last = reverse(head.next);
+  last.next = head;
+  return head;
+}
 
 module.exports = reverseList;
