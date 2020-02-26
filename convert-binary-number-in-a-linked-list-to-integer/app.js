@@ -10,12 +10,12 @@
  * @return {number}
  */
 var getDecimalValue = function (head) {
-  let str = '';
+  let sum = 0;
   while (head != null) {
-    str = `${str}${head.val}`;
+    sum = sum * 2 + head.val;
     head = head.next;
   }
-  return parseInt(str, 2);
+  return sum;
 };
 
 module.exports = getDecimalValue;
