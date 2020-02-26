@@ -13,32 +13,26 @@
 var removeNthFromEnd = function (head, n) {
   let count = 0;
   let fast = head;
-  let slow = null;
+  let slow = { next: head };
+  const dummyHead = slow;
 
   let enough = false;
-  while (fast) {
+  while (fast && (count < n)) {
     count++;
     fast = fast.next;
-    if (count === n) {
-      enough = true;
-      break;
-    }
   }
 
-  if (!enough) {
+  if (count != n) {
     return null;
   }
 
-  let isHead = true;
-  slow = { next: head };
   while (fast) {
     fast = fast.next;
     slow = slow.next;
-    isHead = false;
   }
   slow.next = (slow && slow.next) ? slow.next.next : null;
 
-  return isHead ? head.next : head;
+  return dummyHead.next;
 };
 
 module.exports = removeNthFromEnd;
